@@ -29,8 +29,8 @@ def create_app():
     return "PONG!", 200
 
   @app.route("/echo", methods=["GET", "POST"])
-  @app.route("/echo/<path:path>", methods=["GET", "POST"])
-  def echo(path=None):
+  @app.route("/echo/", methods=["GET", "POST"])
+  def echo():
     kubernetes_info = [
       "Kubernetes Info: ",
       "\tCluster Name: " + os.environ.get("CLUSTER_NAME", "N/A"),
