@@ -1,12 +1,12 @@
 #!/bin/bash
 
 help() {
-  echo "Usage: ./build.sh BUIL_PATH"
+  echo "Usage: ./build_image.sh BUIL_PATH"
   echo "Example:"
-  echo "  ./build.sh applications/python-echo-server/"
+  echo "  ./build_image.sh applications/python-echo-server/"
 }
 
-arg=$1
+arg="${1%/}"
 
 if [ "$arg" == "-h" ] || [ "$arg" == "--help" ]; then
   help
