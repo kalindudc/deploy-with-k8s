@@ -33,6 +33,7 @@ def create_app():
   def echo():
     kubernetes_info = [
       "Kubernetes Info: ",
+      "\tHostname: " + os.environ.get("HOSTNAME", "N/A"),
       "\tCluster Name: " + os.environ.get("CLUSTER_NAME", "N/A"),
       "\tNamespace: " + os.environ.get("POD_NAMESPACE", "N/A"),
       "\tNode Name: " + os.environ.get("NODE_NAME", "N/A"),
