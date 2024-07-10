@@ -46,4 +46,14 @@ app_name=$(basename $arg)
 
 # build the docker image
 docker build -t $app_name:$version -t $app_name:latest $arg
+
+echo " "
+echo "Docker image $app_name:$version and $app_name:latest built successfully"
+
+echo "Loading the image into minikube, :$version"
+minikube image load $app_name:$version
+
+echo "Loading the image into minikube, :latest"
 minikube image load $app_name:latest
+
+echo "Image loaded successfully"
