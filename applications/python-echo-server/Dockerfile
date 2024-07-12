@@ -37,9 +37,10 @@ COPY . .
 
 RUN chmod +x /app/main.py
 
-
 # Switch to the non-privileged user to run the application.
 USER appuser
+
+RUN apt-get -y update; apt-get -y install curl dnsutils
 
 # Expose the port that the application listens on.
 EXPOSE 8080

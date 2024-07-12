@@ -46,5 +46,6 @@ fi
 while IFS= read -r target
 do
   kubectl --context $target create namespace "$NAMESPACE" 2>/dev/null || true
+  kubectl --context $target -n $NAMESPACE create configmap cluster-metadata --from-literal="CLUSTER_NAME=$target"
   krane deploy $NAMESPACE $target -f $DEPLOY_PATH
 done < $DEPLOY_PATH/TARGETS
